@@ -32,14 +32,13 @@ class Article extends React.Component {
   }
 }
 
-import PropTypes from 'prop-types';
 
 class News extends React.Component {
   render() {
     var latest_news = this.props.latest_news;
     var newsTemplate;
 
-    if (latest_news.length > 0) {
+    if (latest_news && latest_news.length > 0) {
         newsTemplate = latest_news.map(function(item, index) {
             return (
                 <div key={index}>
@@ -52,9 +51,9 @@ class News extends React.Component {
     }
 
     return (
-      <div class = 'news'>
+      <div className = 'news'>
         {newsTemplate}
-        <strong class = {'news__count ' + (latest_news.length > 0 ? '':'none')}>Всего новостей: {latest_news.length}</strong>
+        <strong className = {'news__count ' + (latest_news && latest_news.length > 0 ? '':'none')}>Всего новостей: {latest_news && latest_news.length}</strong>
      </div>
     );
   }
@@ -68,7 +67,7 @@ News.propTypes = {
 class App extends React.Component {
   render() {
     return (
-      <div class = 'app'>
+      <div className = 'app'>
         <h3>Новости</h3>
         <News  />  {/*в <> должно быть latest_news={my_news}*/}
       </div>

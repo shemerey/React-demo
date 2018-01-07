@@ -31,9 +31,9 @@ class Article extends React.Component {
     };
 
     handleClick() {
-      this.state = {
-          visible: true,
-      };
+      this.setState({
+        visible: true,
+      });
     }
 
   render() {
